@@ -1,0 +1,8 @@
+<property name="build.native" value="./src"/>
+<property name="cppcheck.cmd" value="/usr/bin/cppcheck"/>
+<target name="cppcheck" description="C++ code check" >
+	<exec dir="${build.native}" executable="${cppcheck.cmd}" failonerror="true">
+		<arg line="--xml --xml-version=2 --enable=all --inconclusive --language=c++ *.cpp"/>
+		<redirector error="cppcheck.xml"/>
+	</exec>
+</target>
